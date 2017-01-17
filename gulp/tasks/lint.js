@@ -3,11 +3,11 @@
 **/
 "use strict";
 
-var gulp = require("gulp");
-var config = require("../config").lint;
-var browserSync = require("browser-sync");
-var reload = browserSync.reload;
-var $ = require("gulp-load-plugins")();
+const gulp = require("gulp");
+const config = require("../config").lint;
+const browserSync = require("browser-sync");
+const reload = browserSync.reload;
+const $ = require("gulp-load-plugins")();
 
 function lint(files, opt){
     return function () {
@@ -19,7 +19,7 @@ function lint(files, opt){
     };
 }
 
-var testLintOptions = config.test.options;
+const testLintOptions = config.test.options;
 
 gulp.task('lint', lint(config.src));
 gulp.task('lint:test', lint(config.test.src, testLintOptions));

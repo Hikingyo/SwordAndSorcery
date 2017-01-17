@@ -1,3 +1,6 @@
 node_modules/
 docs/
 dist/
+.tmp/
+.idea/
+sessions/*.json

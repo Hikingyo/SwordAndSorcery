@@ -11,12 +11,11 @@ var config = require("../config").html;
 
 gulp.task('html', ['styles'], function() {
 
-    return gulp.src(config.src + '/*.html')
+    return gulp.src(config.src + '/**/*.ejs')
         .pipe($.useref({
             searchPath: config.useref.searchPath
         }))
         .pipe($.if('*.js', $.uglify()))
         .pipe($.if('*.css', $.minifyCss(config.minifyCss)))
-        .pipe($.if('*.html', $.minifyHtml(config.minifyHtml)))
         .pipe(gulp.dest(config.dest));
 });

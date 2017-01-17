@@ -2,10 +2,9 @@
 * Default task.
 * Cleaning dest folder before building
 **/
-"use Strict";
 
-var gulp = require("gulp");
+const gulp = require("gulp");
 
 gulp.task("default", ["clean"], function () {
-    gulp.start("build");
-})
+    gulp.start('serve');
+});

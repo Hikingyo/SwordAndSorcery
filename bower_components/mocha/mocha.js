@@ -226,14 +226,14 @@ function isArray (val) {
 /**
  * Event emitter constructor.
  *
- * @api public
+ * @api resources
  */
 function EventEmitter () {}
 
 /**
  * Add a listener.
  *
- * @api public
+ * @api resources
  * @param {string} name Event name.
  * @param {Function} fn Event handler.
  * @return {EventEmitter} Emitter instance.
@@ -259,7 +259,7 @@ EventEmitter.prototype.addListener = EventEmitter.prototype.on;
 /**
  * Adds a volatile listener.
  *
- * @api public
+ * @api resources
  * @param {string} name Event name.
  * @param {Function} fn Event handler.
  * @return {EventEmitter} Emitter instance.
@@ -281,7 +281,7 @@ EventEmitter.prototype.once = function (name, fn) {
 /**
  * Remove a listener.
  *
- * @api public
+ * @api resources
  * @param {string} name Event name.
  * @param {Function} fn Event handler.
  * @return {EventEmitter} Emitter instance.
@@ -320,7 +320,7 @@ EventEmitter.prototype.removeListener = function (name, fn) {
 /**
  * Remove all listeners for an event.
  *
- * @api public
+ * @api resources
  * @param {string} name Event name.
  * @return {EventEmitter} Emitter instance.
  */
@@ -340,7 +340,7 @@ EventEmitter.prototype.removeAllListeners = function (name) {
 /**
  * Get all listeners for a given event.
  *
- * @api public
+ * @api resources
  * @param {string} name Event name.
  * @return {EventEmitter} Emitter instance.
  */
@@ -363,7 +363,7 @@ EventEmitter.prototype.listeners = function (name) {
 /**
  * Emit an event.
  *
- * @api public
+ * @api resources
  * @param {string} name Event name.
  * @return {boolean} true if at least one handler was invoked, else false.
  */
@@ -417,7 +417,7 @@ function Progress () {
 /**
  * Set progress size to `size`.
  *
- * @api public
+ * @api resources
  * @param {number} size
  * @return {Progress} Progress instance.
  */
@@ -429,7 +429,7 @@ Progress.prototype.size = function (size) {
 /**
  * Set text to `text`.
  *
- * @api public
+ * @api resources
  * @param {string} text
  * @return {Progress} Progress instance.
  */
@@ -441,7 +441,7 @@ Progress.prototype.text = function (text) {
 /**
  * Set font size to `size`.
  *
- * @api public
+ * @api resources
  * @param {number} size
  * @return {Progress} Progress instance.
  */
@@ -685,7 +685,7 @@ inherits(Hook, Runnable);
  *
  * @param {Error} err
  * @return {Error}
- * @api public
+ * @api resources
  */
 Hook.prototype.error = function (err) {
   if (!arguments.length) {
@@ -1332,7 +1332,7 @@ function image (name) {
  *   - `grep` string or regexp to filter tests with
  *
  * @param {Object} options
- * @api public
+ * @api resources
  */
 function Mocha (options) {
   options = options || {};
@@ -1366,7 +1366,7 @@ function Mocha (options) {
 /**
  * Enable or disable bailing on the first failure.
  *
- * @api public
+ * @api resources
  * @param {boolean} [bail]
  */
 Mocha.prototype.bail = function (bail) {
@@ -1380,7 +1380,7 @@ Mocha.prototype.bail = function (bail) {
 /**
  * Add test `file`.
  *
- * @api public
+ * @api resources
  * @param {string} file
  */
 Mocha.prototype.addFile = function (file) {
@@ -1393,7 +1393,7 @@ Mocha.prototype.addFile = function (file) {
  *
  * @param {String|Function} reporter name or constructor
  * @param {Object} reporterOptions optional options
- * @api public
+ * @api resources
  * @param {string|Function} reporter name or constructor
  * @param {Object} reporterOptions optional options
  */
@@ -1434,7 +1434,7 @@ Mocha.prototype.reporter = function (reporter, reporterOptions) {
 /**
  * Set test UI `name`, defaults to "bdd".
  *
- * @api public
+ * @api resources
  * @param {string} bdd
  */
 Mocha.prototype.ui = function (name) {
@@ -1511,7 +1511,7 @@ Mocha.prototype._growl = function (runner, reporter) {
 /**
  * Escape string and add it to grep as a regexp.
  *
- * @api public
+ * @api resources
  * @param str
  * @returns {Mocha}
  */
@@ -1524,7 +1524,7 @@ Mocha.prototype.fgrep = function (str) {
  *
  * @param {RegExp|String} re
  * @return {Mocha}
- * @api public
+ * @api resources
  * @param {RegExp|string} re
  * @return {Mocha}
  */
@@ -1542,7 +1542,7 @@ Mocha.prototype.grep = function (re) {
  * Invert `.grep()` matches.
  *
  * @return {Mocha}
- * @api public
+ * @api resources
  */
 Mocha.prototype.invert = function () {
   this.options.invert = true;
@@ -1554,7 +1554,7 @@ Mocha.prototype.invert = function () {
  *
  * @param {Boolean} ignore
  * @return {Mocha}
- * @api public
+ * @api resources
  * @param {boolean} ignore
  * @return {Mocha}
  */
@@ -1567,7 +1567,7 @@ Mocha.prototype.ignoreLeaks = function (ignore) {
  * Enable global leak checking.
  *
  * @return {Mocha}
- * @api public
+ * @api resources
  */
 Mocha.prototype.checkLeaks = function () {
   this.options.ignoreLeaks = false;
@@ -1578,7 +1578,7 @@ Mocha.prototype.checkLeaks = function () {
  * Display long stack-trace on failing
  *
  * @return {Mocha}
- * @api public
+ * @api resources
  */
 Mocha.prototype.fullTrace = function () {
   this.options.fullStackTrace = true;
@@ -1589,7 +1589,7 @@ Mocha.prototype.fullTrace = function () {
  * Enable growl support.
  *
  * @return {Mocha}
- * @api public
+ * @api resources
  */
 Mocha.prototype.growl = function () {
   this.options.growl = true;
@@ -1601,7 +1601,7 @@ Mocha.prototype.growl = function () {
  *
  * @param {Array|String} globals
  * @return {Mocha}
- * @api public
+ * @api resources
  * @param {Array|string} globals
  * @return {Mocha}
  */
@@ -1615,7 +1615,7 @@ Mocha.prototype.globals = function (globals) {
  *
  * @param {Boolean} colors
  * @return {Mocha}
- * @api public
+ * @api resources
  * @param {boolean} colors
  * @return {Mocha}
  */
@@ -1631,7 +1631,7 @@ Mocha.prototype.useColors = function (colors) {
  *
  * @param {Boolean} inlineDiffs
  * @return {Mocha}
- * @api public
+ * @api resources
  * @param {boolean} inlineDiffs
  * @return {Mocha}
  */
@@ -1645,7 +1645,7 @@ Mocha.prototype.useInlineDiffs = function (inlineDiffs) {
  *
  * @param {Number} timeout
  * @return {Mocha}
- * @api public
+ * @api resources
  * @param {number} timeout
  * @return {Mocha}
  */
@@ -1659,7 +1659,7 @@ Mocha.prototype.timeout = function (timeout) {
  *
  * @param {Number} retry times
  * @return {Mocha}
- * @api public
+ * @api resources
  */
 Mocha.prototype.retries = function (n) {
   this.suite.retries(n);
@@ -1671,7 +1671,7 @@ Mocha.prototype.retries = function (n) {
  *
  * @param {Number} slow
  * @return {Mocha}
- * @api public
+ * @api resources
  * @param {number} slow
  * @return {Mocha}
  */
@@ -1685,7 +1685,7 @@ Mocha.prototype.slow = function (slow) {
  *
  * @param {Boolean} enabled
  * @return {Mocha}
- * @api public
+ * @api resources
  * @param {boolean} enabled
  * @return {Mocha}
  */
@@ -1698,7 +1698,7 @@ Mocha.prototype.enableTimeouts = function (enabled) {
  * Makes all tests async (accepting a callback)
  *
  * @return {Mocha}
- * @api public
+ * @api resources
  */
 Mocha.prototype.asyncOnly = function () {
   this.options.asyncOnly = true;
@@ -1708,7 +1708,7 @@ Mocha.prototype.asyncOnly = function () {
 /**
  * Disable syntax highlighting (in browser).
  *
- * @api public
+ * @api resources
  */
 Mocha.prototype.noHighlighting = function () {
   this.options.noHighlighting = true;
@@ -1719,7 +1719,7 @@ Mocha.prototype.noHighlighting = function () {
  * Enable uncaught errors to propagate (in browser).
  *
  * @return {Mocha}
- * @api public
+ * @api resources
  */
 Mocha.prototype.allowUncaught = function () {
   this.options.allowUncaught = true;
@@ -1738,7 +1738,7 @@ Mocha.prototype.delay = function delay () {
 /**
  * Run tests and invoke `fn()` when complete.
  *
- * @api public
+ * @api resources
  * @param {Function} fn
  * @return {Runner}
  */
@@ -1802,7 +1802,7 @@ var y = d * 365.25;
  *
  *  - `long` verbose formatting [false]
  *
- * @api public
+ * @api resources
  * @param {string|number} val
  * @param {Object} options
  * @return {string|number}
@@ -2095,7 +2095,7 @@ exports.cursor = {
  * Outut the given `failures` as a list.
  *
  * @param {Array} failures
- * @api public
+ * @api resources
  */
 
 exports.list = function (failures) {
@@ -2171,7 +2171,7 @@ exports.list = function (failures) {
  * of tests passed / failed etc.
  *
  * @param {Runner} runner
- * @api public
+ * @api resources
  */
 
 function Base (runner) {
@@ -2234,7 +2234,7 @@ function Base (runner) {
  * Output common epilogue used by many of
  * the bundled reporters.
  *
- * @api public
+ * @api resources
  */
 Base.prototype.epilogue = function () {
   var stats = this.stats;
@@ -2447,7 +2447,7 @@ exports = module.exports = Doc;
  * Initialize a new `Doc` reporter.
  *
  * @param {Runner} runner
- * @api public
+ * @api resources
  */
 function Doc (runner) {
   Base.call(this, runner);
@@ -2514,7 +2514,7 @@ exports = module.exports = Dot;
 /**
  * Initialize a new `Dot` matrix test reporter.
  *
- * @api public
+ * @api resources
  * @param {Runner} runner
  */
 function Dot (runner) {
@@ -2613,7 +2613,7 @@ var statsTemplate = '<ul id="mocha-stats">' +
 /**
  * Initialize a new `HTML` reporter.
  *
- * @api public
+ * @api resources
  * @param {Runner} runner
  */
 function HTML (runner) {
@@ -2956,7 +2956,7 @@ exports = module.exports = List;
 /**
  * Initialize a new `List` test reporter.
  *
- * @api public
+ * @api resources
  * @param {Runner} runner
  */
 function List (runner) {
@@ -3022,7 +3022,7 @@ exports = module.exports = JSONReporter;
 /**
  * Initialize a new `JSON` reporter.
  *
- * @api public
+ * @api resources
  * @param {Runner} runner
  */
 function JSONReporter (runner) {
@@ -3139,7 +3139,7 @@ Base.colors.runway = 90;
 /**
  * Initialize a new `Landing` reporter.
  *
- * @api public
+ * @api resources
  * @param {Runner} runner
  */
 function Landing (runner) {
@@ -3219,7 +3219,7 @@ exports = module.exports = List;
 /**
  * Initialize a new `List` test reporter.
  *
- * @api public
+ * @api resources
  * @param {Runner} runner
  */
 function List (runner) {
@@ -3290,7 +3290,7 @@ exports = module.exports = Markdown;
 /**
  * Initialize a new `Markdown` reporter.
  *
- * @api public
+ * @api resources
  * @param {Runner} runner
  */
 function Markdown (runner) {
@@ -3387,7 +3387,7 @@ exports = module.exports = Min;
 /**
  * Initialize a new `Min` minimal test reporter (best used with --watch).
  *
- * @api public
+ * @api resources
  * @param {Runner} runner
  */
 function Min (runner) {
@@ -3430,7 +3430,7 @@ exports = module.exports = NyanCat;
  * Initialize a new `Dot` matrix test reporter.
  *
  * @param {Runner} runner
- * @api public
+ * @api resources
  */
 
 function NyanCat (runner) {
@@ -3704,7 +3704,7 @@ Base.colors.progress = 90;
 /**
  * Initialize a new `Progress` bar test reporter.
  *
- * @api public
+ * @api resources
  * @param {Runner} runner
  * @param {Object} options
  */
@@ -3791,7 +3791,7 @@ exports = module.exports = Spec;
 /**
  * Initialize a new `Spec` test reporter.
  *
- * @api public
+ * @api resources
  * @param {Runner} runner
  */
 function Spec (runner) {
@@ -3872,7 +3872,7 @@ exports = module.exports = TAP;
 /**
  * Initialize a new `TAP` reporter.
  *
- * @api public
+ * @api resources
  * @param {Runner} runner
  */
 function TAP (runner) {
@@ -3963,7 +3963,7 @@ exports = module.exports = XUnit;
 /**
  * Initialize a new `XUnit` reporter.
  *
- * @api public
+ * @api resources
  * @param {Runner} runner
  */
 function XUnit (runner, options) {
@@ -4234,7 +4234,7 @@ Runnable.prototype.enableTimeouts = function (enabled) {
 /**
  * Halt and mark as pending.
  *
- * @api public
+ * @api resources
  */
 Runnable.prototype.skip = function () {
   throw new Pending('sync skip');
@@ -4277,7 +4277,7 @@ Runnable.prototype.currentRetry = function (n) {
  * Return the full title generated by recursively concatenating the parent's
  * full title.
  *
- * @api public
+ * @api resources
  * @return {string}
  */
 Runnable.prototype.fullTitle = function () {
@@ -4550,7 +4550,7 @@ module.exports = Runner;
  *   - `fail`  (test, err) test failed
  *   - `pending`  (test) test pending
  *
- * @api public
+ * @api resources
  * @param {Suite} suite Root suite
  * @param {boolean} [delay] Whether or not to delay execution of root suite
  * until ready.
@@ -4595,7 +4595,7 @@ inherits(Runner, EventEmitter);
  * @param {RegExp} re
  * @param {Boolean} invert
  * @return {Runner} for chaining
- * @api public
+ * @api resources
  * @param {RegExp} re
  * @param {boolean} invert
  * @return {Runner} Runner instance.
@@ -4614,7 +4614,7 @@ Runner.prototype.grep = function (re, invert) {
  *
  * @param {Suite} suite
  * @return {Number}
- * @api public
+ * @api resources
  * @param {Suite} suite
  * @return {number}
  */
@@ -4660,7 +4660,7 @@ Runner.prototype.globalProps = function () {
  *
  * @param {Array} arr
  * @return {Runner} for chaining
- * @api public
+ * @api resources
  * @param {Array} arr
  * @return {Runner} Runner instance.
  */
@@ -5278,7 +5278,7 @@ function cleanSuiteReferences (suite) {
  *
  * @param {Function} fn
  * @return {Runner} for chaining
- * @api public
+ * @api resources
  * @param {Function} fn
  * @return {Runner} Runner instance.
  */
@@ -5336,7 +5336,7 @@ Runner.prototype.run = function (fn) {
 /**
  * Cleanly abort execution.
  *
- * @api public
+ * @api resources
  * @return {Runner} Runner instance.
  */
 Runner.prototype.abort = function () {
@@ -5480,7 +5480,7 @@ exports = module.exports = Suite;
  * with the same title is already present, that suite is returned to provide
  * nicer reporter and more flexible meta-testing.
  *
- * @api public
+ * @api resources
  * @param {Suite} parent
  * @param {string} title
  * @return {Suite}
@@ -5809,7 +5809,7 @@ Suite.prototype.addTest = function (test) {
  * Return the full title generated by recursively concatenating the parent's
  * full title.
  *
- * @api public
+ * @api resources
  * @return {string}
  */
 Suite.prototype.fullTitle = function () {
@@ -5825,7 +5825,7 @@ Suite.prototype.fullTitle = function () {
 /**
  * Return the total number of tests.
  *
- * @api public
+ * @api resources
  * @return {number}
  */
 Suite.prototype.total = function () {
@@ -6604,7 +6604,7 @@ exports.canonicalize = function canonicalize (value, stack, typeHint) {
 /**
  * Lookup file names at the given `path`.
  *
- * @api public
+ * @api resources
  * @param {string} path Base path to start searching from.
  * @param {string[]} extensions File extensions to look for.
  * @param {boolean} recursive Whether or not to recurse into subdirectories.
@@ -10024,7 +10024,7 @@ exports.version = '1.4.1'
  * @param {string} msg
  * @param {object} options
  * @param {function} fn
- * @api public
+ * @api resources
  */
 
 function growl(msg, options, fn) {
@@ -12322,18 +12322,18 @@ function mkdirP (p, opts, f, made) {
     else if (!opts || typeof opts !== 'object') {
         opts = { mode: opts };
     }
-    
+
     var mode = opts.mode;
     var xfs = opts.fs || fs;
-    
+
     if (mode === undefined) {
         mode = _0777 & (~process.umask());
     }
     if (!made) made = null;
-    
+
     var cb = f || function () {};
     p = path.resolve(p);
-    
+
     xfs.mkdir(p, mode, function (er) {
         if (!er) {
             made = made || p;
@@ -12366,10 +12366,10 @@ mkdirP.sync = function sync (p, opts, made) {
     if (!opts || typeof opts !== 'object') {
         opts = { mode: opts };
     }
-    
+
     var mode = opts.mode;
     var xfs = opts.fs || fs;
-    
+
     if (mode === undefined) {
         mode = _0777 & (~process.umask());
     }
@@ -14910,7 +14910,7 @@ module.exports = deprecate;
  * @param {Function} fn - the function to deprecate
  * @param {String} msg - the string to print to the console when `fn` is invoked
  * @returns {Function} a new "deprecated" version of `fn`
- * @api public
+ * @api resources
  */
 
 function deprecate (fn, msg) {

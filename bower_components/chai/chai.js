@@ -36,7 +36,7 @@ var util = require('./chai/utils');
  *
  * @param {Function}
  * @returns {this} for chaining
- * @api public
+ * @api resources
  */
 
 exports.use = function (fn) {
@@ -242,7 +242,7 @@ module.exports = {
    *     chai.config.includeStack = true;  // enable stack on error
    *
    * @param {Boolean}
-   * @api public
+   * @api resources
    */
 
    includeStack: false,
@@ -257,7 +257,7 @@ module.exports = {
    * be shown.
    *
    * @param {Boolean}
-   * @api public
+   * @api resources
    */
 
   showDiff: true,
@@ -279,7 +279,7 @@ module.exports = {
    *     chai.config.truncateThreshold = 0;  // disable truncating
    *
    * @param {Number}
-   * @api public
+   * @api resources
    */
 
   truncateThreshold: 40
@@ -325,7 +325,7 @@ module.exports = function (chai, _) {
    *
    * @name language chains
    * @namespace BDD
-   * @api public
+   * @api resources
    */
 
   [ 'to', 'be', 'been'
@@ -349,7 +349,7 @@ module.exports = function (chai, _) {
    *
    * @name not
    * @namespace BDD
-   * @api public
+   * @api resources
    */
 
   Assertion.addProperty('not', function () {
@@ -374,7 +374,7 @@ module.exports = function (chai, _) {
    *
    * @name deep
    * @namespace BDD
-   * @api public
+   * @api resources
    */
 
   Assertion.addProperty('deep', function () {
@@ -391,7 +391,7 @@ module.exports = function (chai, _) {
    *
    * @name any
    * @namespace BDD
-   * @api public
+   * @api resources
    */
 
   Assertion.addProperty('any', function () {
@@ -410,7 +410,7 @@ module.exports = function (chai, _) {
    *
    * @name all
    * @namespace BDD
-   * @api public
+   * @api resources
    */
 
   Assertion.addProperty('all', function () {
@@ -446,7 +446,7 @@ module.exports = function (chai, _) {
    * @param {String} type
    * @param {String} message _optional_
    * @namespace BDD
-   * @api public
+   * @api resources
    */
 
   function an (type, msg) {
@@ -484,7 +484,7 @@ module.exports = function (chai, _) {
    * @param {Object|String|Number} obj
    * @param {String} message _optional_
    * @namespace BDD
-   * @api public
+   * @api resources
    */
 
   function includeChainingBehavior () {
@@ -540,7 +540,7 @@ module.exports = function (chai, _) {
    *
    * @name ok
    * @namespace BDD
-   * @api public
+   * @api resources
    */
 
   Assertion.addProperty('ok', function () {
@@ -560,7 +560,7 @@ module.exports = function (chai, _) {
    *
    * @name true
    * @namespace BDD
-   * @api public
+   * @api resources
    */
 
   Assertion.addProperty('true', function () {
@@ -582,7 +582,7 @@ module.exports = function (chai, _) {
    *
    * @name false
    * @namespace BDD
-   * @api public
+   * @api resources
    */
 
   Assertion.addProperty('false', function () {
@@ -604,7 +604,7 @@ module.exports = function (chai, _) {
    *
    * @name null
    * @namespace BDD
-   * @api public
+   * @api resources
    */
 
   Assertion.addProperty('null', function () {
@@ -625,7 +625,7 @@ module.exports = function (chai, _) {
    *
    * @name undefined
    * @namespace BDD
-   * @api public
+   * @api resources
    */
 
   Assertion.addProperty('undefined', function () {
@@ -645,7 +645,7 @@ module.exports = function (chai, _) {
    *
    * @name NaN
    * @namespace BDD
-   * @api public
+   * @api resources
    */
 
   Assertion.addProperty('NaN', function () {
@@ -671,7 +671,7 @@ module.exports = function (chai, _) {
    *
    * @name exist
    * @namespace BDD
-   * @api public
+   * @api resources
    */
 
   Assertion.addProperty('exist', function () {
@@ -696,7 +696,7 @@ module.exports = function (chai, _) {
    *
    * @name empty
    * @namespace BDD
-   * @api public
+   * @api resources
    */
 
   Assertion.addProperty('empty', function () {
@@ -728,7 +728,7 @@ module.exports = function (chai, _) {
    * @name arguments
    * @alias Arguments
    * @namespace BDD
-   * @api public
+   * @api resources
    */
 
   function checkArguments () {
@@ -764,7 +764,7 @@ module.exports = function (chai, _) {
    * @param {Mixed} value
    * @param {String} message _optional_
    * @namespace BDD
-   * @api public
+   * @api resources
    */
 
   function assertEqual (val, msg) {
@@ -801,7 +801,7 @@ module.exports = function (chai, _) {
    * @param {Mixed} value
    * @param {String} message _optional_
    * @namespace BDD
-   * @api public
+   * @api resources
    */
 
   function assertEql(obj, msg) {
@@ -840,7 +840,7 @@ module.exports = function (chai, _) {
    * @param {Number} value
    * @param {String} message _optional_
    * @namespace BDD
-   * @api public
+   * @api resources
    */
 
   function assertAbove (n, msg) {
@@ -889,7 +889,7 @@ module.exports = function (chai, _) {
    * @param {Number} value
    * @param {String} message _optional_
    * @namespace BDD
-   * @api public
+   * @api resources
    */
 
   function assertLeast (n, msg) {
@@ -938,7 +938,7 @@ module.exports = function (chai, _) {
    * @param {Number} value
    * @param {String} message _optional_
    * @namespace BDD
-   * @api public
+   * @api resources
    */
 
   function assertBelow (n, msg) {
@@ -987,7 +987,7 @@ module.exports = function (chai, _) {
    * @param {Number} value
    * @param {String} message _optional_
    * @namespace BDD
-   * @api public
+   * @api resources
    */
 
   function assertMost (n, msg) {
@@ -1035,7 +1035,7 @@ module.exports = function (chai, _) {
    * @param {Number} finish upperbound inclusive
    * @param {String} message _optional_
    * @namespace BDD
-   * @api public
+   * @api resources
    */
 
   Assertion.addMethod('within', function (start, finish, msg) {
@@ -1075,7 +1075,7 @@ module.exports = function (chai, _) {
    * @param {String} message _optional_
    * @alias instanceOf
    * @namespace BDD
-   * @api public
+   * @api resources
    */
 
   function assertInstanceOf (constructor, msg) {
@@ -1160,7 +1160,7 @@ module.exports = function (chai, _) {
    * @param {String} message _optional_
    * @returns value of property for chaining
    * @namespace BDD
-   * @api public
+   * @api resources
    */
 
   Assertion.addMethod('property', function (name, val, msg) {
@@ -1216,7 +1216,7 @@ module.exports = function (chai, _) {
    * @param {String} name
    * @param {String} message _optional_
    * @namespace BDD
-   * @api public
+   * @api resources
    */
 
   function assertOwnProperty (name, msg) {
@@ -1249,7 +1249,7 @@ module.exports = function (chai, _) {
    * @param {Object} descriptor _optional_
    * @param {String} message _optional_
    * @namespace BDD
-   * @api public
+   * @api resources
    */
 
   function assertOwnPropertyDescriptor (name, descriptor, msg) {
@@ -1302,7 +1302,7 @@ module.exports = function (chai, _) {
    *
    * @name length
    * @namespace BDD
-   * @api public
+   * @api resources
    */
 
   /**
@@ -1318,7 +1318,7 @@ module.exports = function (chai, _) {
    * @param {Number} length
    * @param {String} message _optional_
    * @namespace BDD
-   * @api public
+   * @api resources
    */
 
   function assertLengthChain () {
@@ -1355,7 +1355,7 @@ module.exports = function (chai, _) {
    * @param {RegExp} RegularExpression
    * @param {String} message _optional_
    * @namespace BDD
-   * @api public
+   * @api resources
    */
   function assertMatch(re, msg) {
     if (msg) flag(this, 'message', msg);
@@ -1381,7 +1381,7 @@ module.exports = function (chai, _) {
    * @param {String} string
    * @param {String} message _optional_
    * @namespace BDD
-   * @api public
+   * @api resources
    */
 
   Assertion.addMethod('string', function (str, msg) {
@@ -1433,7 +1433,7 @@ module.exports = function (chai, _) {
    * @alias key
    * @param {...String|Array|Object} keys
    * @namespace BDD
-   * @api public
+   * @api resources
    */
 
   function assertKeys (keys) {
@@ -1553,7 +1553,7 @@ module.exports = function (chai, _) {
    * @see https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Error#Error_types
    * @returns error for chaining (null if no error)
    * @namespace BDD
-   * @api public
+   * @api resources
    */
 
   function assertThrows (constructor, errMsg, msg) {
@@ -1697,7 +1697,7 @@ module.exports = function (chai, _) {
    * @param {String} method
    * @param {String} message _optional_
    * @namespace BDD
-   * @api public
+   * @api resources
    */
 
   function respondTo (method, msg) {
@@ -1732,7 +1732,7 @@ module.exports = function (chai, _) {
    *
    * @name itself
    * @namespace BDD
-   * @api public
+   * @api resources
    */
 
   Assertion.addProperty('itself', function () {
@@ -1751,7 +1751,7 @@ module.exports = function (chai, _) {
    * @param {Function} matcher
    * @param {String} message _optional_
    * @namespace BDD
-   * @api public
+   * @api resources
    */
 
   function satisfy (matcher, msg) {
@@ -1783,7 +1783,7 @@ module.exports = function (chai, _) {
    * @param {Number} delta
    * @param {String} message _optional_
    * @namespace BDD
-   * @api public
+   * @api resources
    */
 
   function closeTo(expected, delta, msg) {
@@ -1835,7 +1835,7 @@ module.exports = function (chai, _) {
    * @param {Array} set
    * @param {String} message _optional_
    * @namespace BDD
-   * @api public
+   * @api resources
    */
 
   Assertion.addMethod('members', function (subset, msg) {
@@ -1885,7 +1885,7 @@ module.exports = function (chai, _) {
    * @param {Array<*>} list
    * @param {String} message _optional_
    * @namespace BDD
-   * @api public
+   * @api resources
    */
 
   function oneOf (list, msg) {
@@ -1923,7 +1923,7 @@ module.exports = function (chai, _) {
    * @param {String} property name
    * @param {String} message _optional_
    * @namespace BDD
-   * @api public
+   * @api resources
    */
 
   function assertChanges (object, prop, msg) {
@@ -1961,7 +1961,7 @@ module.exports = function (chai, _) {
    * @param {String} property name
    * @param {String} message _optional_
    * @namespace BDD
-   * @api public
+   * @api resources
    */
 
   function assertIncreases (object, prop, msg) {
@@ -1999,7 +1999,7 @@ module.exports = function (chai, _) {
    * @param {String} property name
    * @param {String} message _optional_
    * @namespace BDD
-   * @api public
+   * @api resources
    */
 
   function assertDecreases (object, prop, msg) {
@@ -2038,7 +2038,7 @@ module.exports = function (chai, _) {
    *
    * @name extensible
    * @namespace BDD
-   * @api public
+   * @api resources
    */
 
   Assertion.addProperty('extensible', function() {
@@ -2080,7 +2080,7 @@ module.exports = function (chai, _) {
    *
    * @name sealed
    * @namespace BDD
-   * @api public
+   * @api resources
    */
 
   Assertion.addProperty('sealed', function() {
@@ -2120,7 +2120,7 @@ module.exports = function (chai, _) {
    *
    * @name frozen
    * @namespace BDD
-   * @api public
+   * @api resources
    */
 
   Assertion.addProperty('frozen', function() {
@@ -2181,7 +2181,7 @@ module.exports = function (chai, util) {
    * @param {String} message to display on error
    * @name assert
    * @namespace Assert
-   * @api public
+   * @api resources
    */
 
   var assert = chai.assert = function (express, errmsg) {
@@ -2204,7 +2204,7 @@ module.exports = function (chai, util) {
    * @param {String} message
    * @param {String} operator
    * @namespace Assert
-   * @api public
+   * @api resources
    */
 
   assert.fail = function (actual, expected, message, operator) {
@@ -2229,7 +2229,7 @@ module.exports = function (chai, util) {
    * @param {Mixed} object to test
    * @param {String} message
    * @namespace Assert
-   * @api public
+   * @api resources
    */
 
   assert.isOk = function (val, msg) {
@@ -2249,7 +2249,7 @@ module.exports = function (chai, util) {
    * @param {Mixed} object to test
    * @param {String} message
    * @namespace Assert
-   * @api public
+   * @api resources
    */
 
   assert.isNotOk = function (val, msg) {
@@ -2268,7 +2268,7 @@ module.exports = function (chai, util) {
    * @param {Mixed} expected
    * @param {String} message
    * @namespace Assert
-   * @api public
+   * @api resources
    */
 
   assert.equal = function (act, exp, msg) {
@@ -2295,7 +2295,7 @@ module.exports = function (chai, util) {
    * @param {Mixed} expected
    * @param {String} message
    * @namespace Assert
-   * @api public
+   * @api resources
    */
 
   assert.notEqual = function (act, exp, msg) {
@@ -2322,7 +2322,7 @@ module.exports = function (chai, util) {
    * @param {Mixed} expected
    * @param {String} message
    * @namespace Assert
-   * @api public
+   * @api resources
    */
 
   assert.strictEqual = function (act, exp, msg) {
@@ -2341,7 +2341,7 @@ module.exports = function (chai, util) {
    * @param {Mixed} expected
    * @param {String} message
    * @namespace Assert
-   * @api public
+   * @api resources
    */
 
   assert.notStrictEqual = function (act, exp, msg) {
@@ -2360,7 +2360,7 @@ module.exports = function (chai, util) {
    * @param {Mixed} expected
    * @param {String} message
    * @namespace Assert
-   * @api public
+   * @api resources
    */
 
   assert.deepEqual = function (act, exp, msg) {
@@ -2379,7 +2379,7 @@ module.exports = function (chai, util) {
    * @param {Mixed} expected
    * @param {String} message
    * @namespace Assert
-   * @api public
+   * @api resources
    */
 
   assert.notDeepEqual = function (act, exp, msg) {
@@ -2398,7 +2398,7 @@ module.exports = function (chai, util) {
    * @param {Mixed} valueToBeAbove
    * @param {String} message
    * @namespace Assert
-   * @api public
+   * @api resources
    */
 
   assert.isAbove = function (val, abv, msg) {
@@ -2418,7 +2418,7 @@ module.exports = function (chai, util) {
    * @param {Mixed} valueToBeAtLeast
    * @param {String} message
    * @namespace Assert
-   * @api public
+   * @api resources
    */
 
   assert.isAtLeast = function (val, atlst, msg) {
@@ -2437,7 +2437,7 @@ module.exports = function (chai, util) {
    * @param {Mixed} valueToBeBelow
    * @param {String} message
    * @namespace Assert
-   * @api public
+   * @api resources
    */
 
   assert.isBelow = function (val, blw, msg) {
@@ -2457,7 +2457,7 @@ module.exports = function (chai, util) {
    * @param {Mixed} valueToBeAtMost
    * @param {String} message
    * @namespace Assert
-   * @api public
+   * @api resources
    */
 
   assert.isAtMost = function (val, atmst, msg) {
@@ -2476,7 +2476,7 @@ module.exports = function (chai, util) {
    * @param {Mixed} value
    * @param {String} message
    * @namespace Assert
-   * @api public
+   * @api resources
    */
 
   assert.isTrue = function (val, msg) {
@@ -2495,7 +2495,7 @@ module.exports = function (chai, util) {
    * @param {Mixed} value
    * @param {String} message
    * @namespace Assert
-   * @api public
+   * @api resources
    */
 
   assert.isNotTrue = function (val, msg) {
@@ -2514,7 +2514,7 @@ module.exports = function (chai, util) {
    * @param {Mixed} value
    * @param {String} message
    * @namespace Assert
-   * @api public
+   * @api resources
    */
 
   assert.isFalse = function (val, msg) {
@@ -2533,7 +2533,7 @@ module.exports = function (chai, util) {
    * @param {Mixed} value
    * @param {String} message
    * @namespace Assert
-   * @api public
+   * @api resources
    */
 
   assert.isNotFalse = function (val, msg) {
@@ -2551,7 +2551,7 @@ module.exports = function (chai, util) {
    * @param {Mixed} value
    * @param {String} message
    * @namespace Assert
-   * @api public
+   * @api resources
    */
 
   assert.isNull = function (val, msg) {
@@ -2570,7 +2570,7 @@ module.exports = function (chai, util) {
    * @param {Mixed} value
    * @param {String} message
    * @namespace Assert
-   * @api public
+   * @api resources
    */
 
   assert.isNotNull = function (val, msg) {
@@ -2587,7 +2587,7 @@ module.exports = function (chai, util) {
    * @param {Mixed} value
    * @param {String} message
    * @namespace Assert
-   * @api public
+   * @api resources
    */
 
   assert.isNaN = function (val, msg) {
@@ -2604,7 +2604,7 @@ module.exports = function (chai, util) {
    * @param {Mixed} value
    * @param {String} message
    * @namespace Assert
-   * @api public
+   * @api resources
    */
   assert.isNotNaN = function (val, msg) {
     new Assertion(val, msg).not.to.be.NaN;
@@ -2622,7 +2622,7 @@ module.exports = function (chai, util) {
    * @param {Mixed} value
    * @param {String} message
    * @namespace Assert
-   * @api public
+   * @api resources
    */
 
   assert.isUndefined = function (val, msg) {
@@ -2641,7 +2641,7 @@ module.exports = function (chai, util) {
    * @param {Mixed} value
    * @param {String} message
    * @namespace Assert
-   * @api public
+   * @api resources
    */
 
   assert.isDefined = function (val, msg) {
@@ -2660,7 +2660,7 @@ module.exports = function (chai, util) {
    * @param {Mixed} value
    * @param {String} message
    * @namespace Assert
-   * @api public
+   * @api resources
    */
 
   assert.isFunction = function (val, msg) {
@@ -2679,7 +2679,7 @@ module.exports = function (chai, util) {
    * @param {Mixed} value
    * @param {String} message
    * @namespace Assert
-   * @api public
+   * @api resources
    */
 
   assert.isNotFunction = function (val, msg) {
@@ -2699,7 +2699,7 @@ module.exports = function (chai, util) {
    * @param {Mixed} value
    * @param {String} message
    * @namespace Assert
-   * @api public
+   * @api resources
    */
 
   assert.isObject = function (val, msg) {
@@ -2719,7 +2719,7 @@ module.exports = function (chai, util) {
    * @param {Mixed} value
    * @param {String} message
    * @namespace Assert
-   * @api public
+   * @api resources
    */
 
   assert.isNotObject = function (val, msg) {
@@ -2738,7 +2738,7 @@ module.exports = function (chai, util) {
    * @param {Mixed} value
    * @param {String} message
    * @namespace Assert
-   * @api public
+   * @api resources
    */
 
   assert.isArray = function (val, msg) {
@@ -2757,7 +2757,7 @@ module.exports = function (chai, util) {
    * @param {Mixed} value
    * @param {String} message
    * @namespace Assert
-   * @api public
+   * @api resources
    */
 
   assert.isNotArray = function (val, msg) {
@@ -2776,7 +2776,7 @@ module.exports = function (chai, util) {
    * @param {Mixed} value
    * @param {String} message
    * @namespace Assert
-   * @api public
+   * @api resources
    */
 
   assert.isString = function (val, msg) {
@@ -2795,7 +2795,7 @@ module.exports = function (chai, util) {
    * @param {Mixed} value
    * @param {String} message
    * @namespace Assert
-   * @api public
+   * @api resources
    */
 
   assert.isNotString = function (val, msg) {
@@ -2814,7 +2814,7 @@ module.exports = function (chai, util) {
    * @param {Number} value
    * @param {String} message
    * @namespace Assert
-   * @api public
+   * @api resources
    */
 
   assert.isNumber = function (val, msg) {
@@ -2833,7 +2833,7 @@ module.exports = function (chai, util) {
    * @param {Mixed} value
    * @param {String} message
    * @namespace Assert
-   * @api public
+   * @api resources
    */
 
   assert.isNotNumber = function (val, msg) {
@@ -2855,7 +2855,7 @@ module.exports = function (chai, util) {
    * @param {Mixed} value
    * @param {String} message
    * @namespace Assert
-   * @api public
+   * @api resources
    */
 
   assert.isBoolean = function (val, msg) {
@@ -2877,7 +2877,7 @@ module.exports = function (chai, util) {
    * @param {Mixed} value
    * @param {String} message
    * @namespace Assert
-   * @api public
+   * @api resources
    */
 
   assert.isNotBoolean = function (val, msg) {
@@ -2902,7 +2902,7 @@ module.exports = function (chai, util) {
    * @param {String} name
    * @param {String} message
    * @namespace Assert
-   * @api public
+   * @api resources
    */
 
   assert.typeOf = function (val, type, msg) {
@@ -2922,7 +2922,7 @@ module.exports = function (chai, util) {
    * @param {String} typeof name
    * @param {String} message
    * @namespace Assert
-   * @api public
+   * @api resources
    */
 
   assert.notTypeOf = function (val, type, msg) {
@@ -2944,7 +2944,7 @@ module.exports = function (chai, util) {
    * @param {Constructor} constructor
    * @param {String} message
    * @namespace Assert
-   * @api public
+   * @api resources
    */
 
   assert.instanceOf = function (val, type, msg) {
@@ -2966,7 +2966,7 @@ module.exports = function (chai, util) {
    * @param {Constructor} constructor
    * @param {String} message
    * @namespace Assert
-   * @api public
+   * @api resources
    */
 
   assert.notInstanceOf = function (val, type, msg) {
@@ -2987,7 +2987,7 @@ module.exports = function (chai, util) {
    * @param {Mixed} needle
    * @param {String} message
    * @namespace Assert
-   * @api public
+   * @api resources
    */
 
   assert.include = function (exp, inc, msg) {
@@ -3008,7 +3008,7 @@ module.exports = function (chai, util) {
    * @param {Mixed} needle
    * @param {String} message
    * @namespace Assert
-   * @api public
+   * @api resources
    */
 
   assert.notInclude = function (exp, inc, msg) {
@@ -3027,7 +3027,7 @@ module.exports = function (chai, util) {
    * @param {RegExp} regexp
    * @param {String} message
    * @namespace Assert
-   * @api public
+   * @api resources
    */
 
   assert.match = function (exp, re, msg) {
@@ -3046,7 +3046,7 @@ module.exports = function (chai, util) {
    * @param {RegExp} regexp
    * @param {String} message
    * @namespace Assert
-   * @api public
+   * @api resources
    */
 
   assert.notMatch = function (exp, re, msg) {
@@ -3065,7 +3065,7 @@ module.exports = function (chai, util) {
    * @param {String} property
    * @param {String} message
    * @namespace Assert
-   * @api public
+   * @api resources
    */
 
   assert.property = function (obj, prop, msg) {
@@ -3084,7 +3084,7 @@ module.exports = function (chai, util) {
    * @param {String} property
    * @param {String} message
    * @namespace Assert
-   * @api public
+   * @api resources
    */
 
   assert.notProperty = function (obj, prop, msg) {
@@ -3104,7 +3104,7 @@ module.exports = function (chai, util) {
    * @param {String} property
    * @param {String} message
    * @namespace Assert
-   * @api public
+   * @api resources
    */
 
   assert.deepProperty = function (obj, prop, msg) {
@@ -3124,7 +3124,7 @@ module.exports = function (chai, util) {
    * @param {String} property
    * @param {String} message
    * @namespace Assert
-   * @api public
+   * @api resources
    */
 
   assert.notDeepProperty = function (obj, prop, msg) {
@@ -3145,7 +3145,7 @@ module.exports = function (chai, util) {
    * @param {Mixed} value
    * @param {String} message
    * @namespace Assert
-   * @api public
+   * @api resources
    */
 
   assert.propertyVal = function (obj, prop, val, msg) {
@@ -3166,7 +3166,7 @@ module.exports = function (chai, util) {
    * @param {Mixed} value
    * @param {String} message
    * @namespace Assert
-   * @api public
+   * @api resources
    */
 
   assert.propertyNotVal = function (obj, prop, val, msg) {
@@ -3188,7 +3188,7 @@ module.exports = function (chai, util) {
    * @param {Mixed} value
    * @param {String} message
    * @namespace Assert
-   * @api public
+   * @api resources
    */
 
   assert.deepPropertyVal = function (obj, prop, val, msg) {
@@ -3210,7 +3210,7 @@ module.exports = function (chai, util) {
    * @param {Mixed} value
    * @param {String} message
    * @namespace Assert
-   * @api public
+   * @api resources
    */
 
   assert.deepPropertyNotVal = function (obj, prop, val, msg) {
@@ -3230,7 +3230,7 @@ module.exports = function (chai, util) {
    * @param {Number} length
    * @param {String} message
    * @namespace Assert
-   * @api public
+   * @api resources
    */
 
   assert.lengthOf = function (exp, len, msg) {
@@ -3259,7 +3259,7 @@ module.exports = function (chai, util) {
    * @param {String} message
    * @see https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Error#Error_types
    * @namespace Assert
-   * @api public
+   * @api resources
    */
 
   assert.throws = function (fn, errt, errs, msg) {
@@ -3288,7 +3288,7 @@ module.exports = function (chai, util) {
    * @param {String} message
    * @see https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Error#Error_types
    * @namespace Assert
-   * @api public
+   * @api resources
    */
 
   assert.doesNotThrow = function (fn, type, msg) {
@@ -3314,7 +3314,7 @@ module.exports = function (chai, util) {
    * @param {Mixed} val2
    * @param {String} message
    * @namespace Assert
-   * @api public
+   * @api resources
    */
 
   assert.operator = function (val, operator, val2, msg) {
@@ -3367,7 +3367,7 @@ module.exports = function (chai, util) {
    * @param {Number} delta
    * @param {String} message
    * @namespace Assert
-   * @api public
+   * @api resources
    */
 
   assert.closeTo = function (act, exp, delta, msg) {
@@ -3387,7 +3387,7 @@ module.exports = function (chai, util) {
    * @param {Number} delta
    * @param {String} message
    * @namespace Assert
-   * @api public
+   * @api resources
    */
 
   assert.approximately = function (act, exp, delta, msg) {
@@ -3407,7 +3407,7 @@ module.exports = function (chai, util) {
    * @param {Array} set2
    * @param {String} message
    * @namespace Assert
-   * @api public
+   * @api resources
    */
 
   assert.sameMembers = function (set1, set2, msg) {
@@ -3427,7 +3427,7 @@ module.exports = function (chai, util) {
    * @param {Array} set2
    * @param {String} message
    * @namespace Assert
-   * @api public
+   * @api resources
    */
 
   assert.sameDeepMembers = function (set1, set2, msg) {
@@ -3447,7 +3447,7 @@ module.exports = function (chai, util) {
    * @param {Array} subset
    * @param {String} message
    * @namespace Assert
-   * @api public
+   * @api resources
    */
 
   assert.includeMembers = function (superset, subset, msg) {
@@ -3468,7 +3468,7 @@ module.exports = function (chai, util) {
    * @param {Array} subset
    * @param {String} message
    * @namespace Assert
-   * @api public
+   * @api resources
    */
 
   assert.includeDeepMembers = function (superset, subset, msg) {
@@ -3487,7 +3487,7 @@ module.exports = function (chai, util) {
    * @param {Array<*>} list
    * @param {String} message
    * @namespace Assert
-   * @api public
+   * @api resources
    */
 
   assert.oneOf = function (inList, list, msg) {
@@ -3509,7 +3509,7 @@ module.exports = function (chai, util) {
    * @param {String} property name
    * @param {String} message _optional_
    * @namespace Assert
-   * @api public
+   * @api resources
    */
 
   assert.changes = function (fn, obj, prop) {
@@ -3531,7 +3531,7 @@ module.exports = function (chai, util) {
    * @param {String} property name
    * @param {String} message _optional_
    * @namespace Assert
-   * @api public
+   * @api resources
    */
 
   assert.doesNotChange = function (fn, obj, prop) {
@@ -3553,7 +3553,7 @@ module.exports = function (chai, util) {
    * @param {String} property name
    * @param {String} message _optional_
    * @namespace Assert
-   * @api public
+   * @api resources
    */
 
   assert.increases = function (fn, obj, prop) {
@@ -3575,7 +3575,7 @@ module.exports = function (chai, util) {
    * @param {String} property name
    * @param {String} message _optional_
    * @namespace Assert
-   * @api public
+   * @api resources
    */
 
   assert.doesNotIncrease = function (fn, obj, prop) {
@@ -3597,7 +3597,7 @@ module.exports = function (chai, util) {
    * @param {String} property name
    * @param {String} message _optional_
    * @namespace Assert
-   * @api public
+   * @api resources
    */
 
   assert.decreases = function (fn, obj, prop) {
@@ -3619,7 +3619,7 @@ module.exports = function (chai, util) {
    * @param {String} property name
    * @param {String} message _optional_
    * @namespace Assert
-   * @api public
+   * @api resources
    */
 
   assert.doesNotDecrease = function (fn, obj, prop) {
@@ -3639,7 +3639,7 @@ module.exports = function (chai, util) {
    * @name ifError
    * @param {Object} object
    * @namespace Assert
-   * @api public
+   * @api resources
    */
 
   assert.ifError = function (val) {
@@ -3660,7 +3660,7 @@ module.exports = function (chai, util) {
    * @param {Object} object
    * @param {String} message _optional_
    * @namespace Assert
-   * @api public
+   * @api resources
    */
 
   assert.isExtensible = function (obj, msg) {
@@ -3685,7 +3685,7 @@ module.exports = function (chai, util) {
    * @param {Object} object
    * @param {String} message _optional_
    * @namespace Assert
-   * @api public
+   * @api resources
    */
 
   assert.isNotExtensible = function (obj, msg) {
@@ -3709,7 +3709,7 @@ module.exports = function (chai, util) {
    * @param {Object} object
    * @param {String} message _optional_
    * @namespace Assert
-   * @api public
+   * @api resources
    */
 
   assert.isSealed = function (obj, msg) {
@@ -3728,7 +3728,7 @@ module.exports = function (chai, util) {
    * @param {Object} object
    * @param {String} message _optional_
    * @namespace Assert
-   * @api public
+   * @api resources
    */
 
   assert.isNotSealed = function (obj, msg) {
@@ -3749,7 +3749,7 @@ module.exports = function (chai, util) {
    * @param {Object} object
    * @param {String} message _optional_
    * @namespace Assert
-   * @api public
+   * @api resources
    */
 
   assert.isFrozen = function (obj, msg) {
@@ -3768,7 +3768,7 @@ module.exports = function (chai, util) {
    * @param {Object} object
    * @param {String} message _optional_
    * @namespace Assert
-   * @api public
+   * @api resources
    */
 
   assert.isNotFrozen = function (obj, msg) {
@@ -3818,7 +3818,7 @@ module.exports = function (chai, util) {
    * @param {String} message
    * @param {String} operator
    * @namespace Expect
-   * @api public
+   * @api resources
    */
 
   chai.expect.fail = function (actual, expected, message, operator) {
@@ -3883,7 +3883,7 @@ module.exports = function (chai, util) {
      * @param {String} message
      * @param {String} operator
      * @namespace Should
-     * @api public
+     * @api resources
      */
 
     should.fail = function (actual, expected, message, operator) {
@@ -3907,7 +3907,7 @@ module.exports = function (chai, util) {
      * @param {Mixed} expected
      * @param {String} message
      * @namespace Should
-     * @api public
+     * @api resources
      */
 
     should.equal = function (val1, val2, msg) {
@@ -3935,7 +3935,7 @@ module.exports = function (chai, util) {
      * @param {String} message
      * @see https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Error#Error_types
      * @namespace Should
-     * @api public
+     * @api resources
      */
 
     should.Throw = function (fn, errt, errs, msg) {
@@ -3953,7 +3953,7 @@ module.exports = function (chai, util) {
      *
      * @name exist
      * @namespace Should
-     * @api public
+     * @api resources
      */
 
     should.exist = function (val, msg) {
@@ -3975,7 +3975,7 @@ module.exports = function (chai, util) {
      * @param {Mixed} expected
      * @param {String} message
      * @namespace Should
-     * @api public
+     * @api resources
      */
 
     should.not.equal = function (val1, val2, msg) {
@@ -3999,7 +3999,7 @@ module.exports = function (chai, util) {
      * @param {String} message
      * @see https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Error#Error_types
      * @namespace Should
-     * @api public
+     * @api resources
      */
 
     should.not.Throw = function (fn, errt, errs, msg) {
@@ -4017,7 +4017,7 @@ module.exports = function (chai, util) {
      *
      * @name not.exist
      * @namespace Should
-     * @api public
+     * @api resources
      */
 
     should.not.exist = function (val, msg) {
@@ -4091,7 +4091,7 @@ var call  = Function.prototype.call,
  * @param {Function} chainingBehavior function to be called every time the property is accessed
  * @namespace Utils
  * @name addChainableMethod
- * @api public
+ * @api resources
  */
 
 module.exports = function (ctx, name, method, chainingBehavior) {
@@ -4180,7 +4180,7 @@ var config = require('../config');
  * @param {Function} method function to be used for name
  * @namespace Utils
  * @name addMethod
- * @api public
+ * @api resources
  */
 var flag = require('./flag');
 
@@ -4227,7 +4227,7 @@ var flag = require('./flag');
  * @param {Function} getter function to be used for name
  * @namespace Utils
  * @name addProperty
- * @api public
+ * @api resources
  */
 
 module.exports = function (ctx, name, getter) {
@@ -4262,7 +4262,7 @@ module.exports = function (ctx, name, getter) {
  * @param {Array} type A list of allowed types for this assertion
  * @namespace Utils
  * @name expectTypes
- * @api public
+ * @api resources
  */
 
 var AssertionError = require('assertion-error');
@@ -4362,7 +4362,7 @@ module.exports = function (obj, args) {
  * @returns {Array}
  * @namespace Utils
  * @name getEnumerableProperties
- * @api public
+ * @api resources
  */
 
 module.exports = function getEnumerableProperties(object) {
@@ -4405,7 +4405,7 @@ var flag = require('./flag')
  * @param {Arguments} chai.Assertion.prototype.assert arguments
  * @namespace Utils
  * @name getMessage
- * @api public
+ * @api resources
  */
 
 module.exports = function (obj, args) {
@@ -4478,7 +4478,7 @@ var hasProperty = require('./hasProperty');
  * @returns {Object} info
  * @namespace Utils
  * @name getPathInfo
- * @api public
+ * @api resources
  */
 
 module.exports = function getPathInfo(path, obj) {
@@ -4601,7 +4601,7 @@ var getPathInfo = require('./getPathInfo');
  * @returns {Object} value or `undefined`
  * @namespace Utils
  * @name getPathValue
- * @api public
+ * @api resources
  */
 module.exports = function(path, obj) {
   var info = getPathInfo(path, obj);
@@ -4625,7 +4625,7 @@ module.exports = function(path, obj) {
  * @returns {Array}
  * @namespace Utils
  * @name getProperties
- * @api public
+ * @api resources
  */
 
 module.exports = function getProperties(object) {
@@ -4689,7 +4689,7 @@ var type = require('type-detect');
  * @returns {Boolean} whether it exists
  * @namespace Utils
  * @name getPathInfo
- * @api public
+ * @api resources
  */
 
 var literals = {
@@ -5205,7 +5205,7 @@ var config = require('../config');
  * @param {Mixed} javascript object to inspect
  * @name objDisplay
  * @namespace Utils
- * @api public
+ * @api resources
  */
 
 module.exports = function (obj) {
@@ -5270,7 +5270,7 @@ module.exports = function (obj) {
  * @param {Function} chainingBehavior function that returns a function to be used for property
  * @namespace Utils
  * @name overwriteChainableMethod
- * @api public
+ * @api resources
  */
 
 module.exports = function (ctx, name, method, chainingBehavior) {
@@ -5327,7 +5327,7 @@ module.exports = function (ctx, name, method, chainingBehavior) {
  * @param {Function} method function that returns a function to be used for name
  * @namespace Utils
  * @name overwriteMethod
- * @api public
+ * @api resources
  */
 
 module.exports = function (ctx, name, method) {
@@ -5381,7 +5381,7 @@ module.exports = function (ctx, name, method) {
  * @param {Function} getter function that returns a getter function to be used for name
  * @namespace Utils
  * @name overwriteProperty
- * @api public
+ * @api resources
  */
 
 module.exports = function (ctx, name, getter) {
@@ -5890,7 +5890,7 @@ var natives = {
  *
  * @param {Mixed} object
  * @return {String} object type
- * @api public
+ * @api resources
  */
 
 function getType (obj) {
@@ -5960,7 +5960,7 @@ Library.prototype.of = getType;
  *
  * @param {String} type
  * @param {RegExp|Function} test
- * @api public
+ * @api resources
  */
 
 Library.prototype.define = function (type, test) {
@@ -5984,7 +5984,7 @@ Library.prototype.define = function (type, test) {
  * @param {Mixed} object
  * @param {String} type
  * @return {Boolean} result
- * @api public
+ * @api resources
  */
 
 Library.prototype.test = function (obj, type) {
@@ -6024,7 +6024,7 @@ var exports = module.exports = getType;
  *
  * @param {Mixed} object
  * @return {String} object type
- * @api public
+ * @api resources
  */
 var objectTypeRegexp = /^\[object (.*)\]$/;
 
@@ -6098,7 +6098,7 @@ Library.prototype.of = getType;
  *
  * @param {String} type
  * @param {RegExp|Function} test
- * @api public
+ * @api resources
  */
 
 Library.prototype.define = function(type, test) {
@@ -6122,7 +6122,7 @@ Library.prototype.define = function(type, test) {
  * @param {Mixed} object
  * @param {String} type
  * @return {Boolean} result
- * @api public
+ * @api resources
  */
 
 Library.prototype.test = function(obj, type) {

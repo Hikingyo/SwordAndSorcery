@@ -4,27 +4,25 @@
 
 "use strict";
 
-var src = "./app";
-var dest = "./dist";
-var tmp = "./.tmp";
+const src = "./resources";
+const view = "./views";
+const dest = "./public";
+const tmp = "./.tmp";
+const bin = "./bin";
 
 module.exports = {
     html: {
-        "src": src,
+        "src": view,
         "dest": dest,
         "useref": {
             "searchPath": [
-                '.tmp',
-                'app',
+                tmp,
+                src,
                 '.'
             ]
         },
         "minifyCss": {
             "compatibility": "*"
-        },
-        "minifyHtml": {
-            "conditionals": true,
-            "loose": true
         }
     },
     styles: {
@@ -57,17 +55,13 @@ module.exports = {
     },
     serve: {
         "browsersync": {
-            "port": 9000,
-            "server": {
-                "baseDir": [tmp, src],
-                "routes": {
-                    "/bower_components": "bower_components"
-                }
-            }
+			proxy : 'http://localhost:3000',
+			port: '3030',
+			files : [src + "/**"],
+			serveStatic: [tmp, './bower_components']
         },
         "watch_reload": [
-            src + "/*.html",
-            src + "/scripts/**/*.js",
+            view + "/**/*.ejs",
             src + "/img/**/*",
             tmp + "/fonts/**/*",
             tmp + "/styles/**/*.css"
@@ -75,7 +69,8 @@ module.exports = {
         "watch": {
             "styles": src + "/styles/**/*",
             "fonts": src + "/fonts/**/*",
-            "bower": "bower.json"
+            "bower": "bower.json",
+			"scripts": src + "/scripts/**/*.js"
         },
         "test": {
             "browsersync": {
@@ -85,7 +80,7 @@ module.exports = {
                 "server": {
                     "baseDir": "test",
                     routes: {
-                    '/scripts': 'app/scripts',
+                    '/scripts': 'resources/scripts',
                     '/bower_components': 'bower_components'
                     }
                 }
@@ -109,7 +104,7 @@ module.exports = {
     },
     wiredep: {
         "styles": {
-            "src": src + "/styles" + ".less",
+            "src": src + "/styles/*" + ".less",
             "dest": src + "/styles",
             "wiredepStream":{
                 "exclude": ["bootstrap/dist"],
@@ -117,10 +112,10 @@ module.exports = {
             }
         },
         "html": {
-            "src": src + "/*.html",
+            "src": src + "/**/*.ejs",
             "dest": src,
             "wiredepStream":{
-                
+
                 "ignorePath": /^(\.\.\/)*\.\./
             }
         }
@@ -146,12 +141,25 @@ module.exports = {
     },
     extras: {
         "src": [
-            src + "*.*",
-            "!" + src + "/*.html"
+            src + "/*.*",
+            "!" + src + "/*.ejs"
         ],
         "options":{
             "dot": true
         },
         "dest": dest
-    }
+    },
+	nodemon : {
+    	script: bin + '/www',
+		env : {
+    		'NODE_ENV': 'development',
+			'DEBUG': 'SAS:*'
+		},
+		watch :[
+			'bin/*',
+			'controllers/*',
+			'app.js',
+			'Entity/*'
+		]
+	}
 };

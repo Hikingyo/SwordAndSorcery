@@ -3,8 +3,8 @@
 **/
 "use strict";
 
-var gulp = require("gulp");
-var config = require("../config").fonts;
+const gulp = require("gulp");
+const config = require("../config").fonts;
 
 gulp.task('fonts', function () {
     return gulp.src(require('main-bower-files')('**/*.{eot,svg,ttf,woff,woff2}', function (err) {})
