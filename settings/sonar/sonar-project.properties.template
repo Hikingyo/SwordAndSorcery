@@ -1,0 +1,15 @@
+sonar.login=admin
+sonar.password=admin
+sonar.host.url=http://192.168.1.31:9005
+
+sonar.projectKey=Hikingyo:SwordAndSorcery
+sonar.projectName=SwordAndSorcery
+sonar.projectVersion=1.0
+
+sonar.sources=.
+sonar.exclusions=node_modules/**, sessions/**, bower_components/**
+sonar.language=js
+sonar.sourceEncoding=utf8
+
+sonar.javascript.jstestdriver.reportsPath=reports
+sonar.javascript.lcov.reportPaths=reports/lcov.info
