@@ -48,7 +48,7 @@ const httpServer = http.createServer(app);
 const session = app.getSession();
 const cookieParser = app.getCookieParser();
 const socketHandler = SwSsocket(httpServer);
-socketHandler.use(sharedsession(session, cookieParser, {}));
+socketHandler.use(sharedsession(session, cookieParser, {autoSave: true}));
 
 /**
  * Listen on provided port, on all interfaces.
@@ -85,9 +85,9 @@ function _onError(error) {
 	}
 }
 
-function _onListening(){
+function _onListening() {
 	let addr = httpServer.address();
 	let bind = typeof addr === 'string' ? 'Pipe ' + addr : 'Port ' + addr.port;
-	serverDebug('Listening on port' + bind);
+	serverDebug('Listening on ' + bind);
 }
 

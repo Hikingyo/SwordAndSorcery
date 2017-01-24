@@ -4,15 +4,15 @@
 "use strict";
 
 const express = require("express");
-let session = require ("express-session");
+let session = require("express-session");
 const path = require("path");
 const logger = require("morgan");
-const bodyParser =  require("body-parser");
-const cookieParser = require('cookie-parser')();
+const bodyParser = require("body-parser");
+const cookieParser = require('cookie-parser')('th3BetterG4meEveR');
 const less_middleware = require("less-middleware");
-const main  = require("./controllers/main");
-const users  = require("./controllers/users");
-const session_file_store  = require("session-file-store");
+const main = require("./controllers/main");
+const users = require("./controllers/users");
+const session_file_store = require("session-file-store");
 
 const fileStore = session_file_store(session);
 const app = express();
@@ -22,10 +22,14 @@ session = app.use(session({
 	store: new fileStore(),
 	secret: 'th3BetterG4meEveR',
 	name: 'swordandsorcery',
-	resave: false,
+	resave: true,
+	proxy: undefined,
 	saveUninitialized: true,
 	cookie: {
-		secure: true
+		path: '/',
+		httpOnly: true,
+		secure: false,
+		maxAge: null
 	}
 }));
 
@@ -65,7 +69,7 @@ if (app.get('env') === 'development') {
 }
 
 // Production error handler, no stracktraces leaked to user
-	// TODO serve error_xx page
+// TODO serve error_xx page
 else {
 	app.use((err, req, res, next) => {
 		res.status(err.status || 500);
@@ -76,7 +80,7 @@ else {
 	});
 }
 
-app.getSession = function(){
+app.getSession = function () {
 	return session;
 };
 

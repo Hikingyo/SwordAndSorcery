@@ -1,0 +1,36 @@
+const User = require('../Entity/User');
+const debug = require('debug');
+const Node = require('../Entity/Node');
+const gameServiceDebug = debug('SAS:GameService');
+class GameService {
+	constructor() {
+
+	}
+
+	createUser(username) {
+		return new User(username);
+	}
+
+	getNode(nodeName, data) {
+		return new Node(nodeName, data);
+	}
+
+	userAction(request){
+		let res;
+		gameServiceDebug('[userAction] ' + request);
+		switch (request.event){
+			case 'nextNode':
+				res = {event : 'nextNode', data :this.getNode(request.target)};
+				break;
+			case 'hit':
+				break;
+			case 'reward':
+				break;
+			default:
+				res = false;
+		}
+		return res;
+	}
+}
+
+module.exports = GameService;

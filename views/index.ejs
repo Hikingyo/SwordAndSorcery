@@ -1,17 +1,39 @@
 <% include partials/header.ejs %>
-<div class="container">
-	<h1 class="title">Sword &amp; Sorcery</h1>
-	<div id="SAS">
-		<div class="login_page">
-			<p>Blabla bienvenu, blabla règle</p>
-			<form action="#">
-				<label for="username">Votre pseudo</label>
-				<input type="text" id="username" class="input_field">
-			</form>
+<div id="SAS" class="flex-container-v">
+	<div id="gameboard" class="center">
+		<div id="login_page">
+			<div class="book-content">
+				<h2 class="block-content__title">Bienvenue</h2>
+				<p>Bonjour aventurier. Tu es ici au porte d'une fantastisque aventure faite de mille dangers.
+					<br>Avant de commencer voici quelques conseils :
+				<ul>
+					<li>Tu peux consulter l'aide à tout moment en appuyant sur la touche 'H'</li>
+					<li>Tu as à ta disposition un inventaire consultable à l'aide de la touche 'I'</li>
+					<li>Dans ton inventaire, tu peux selectionner un item en cliquant dessus.</li>
+				</ul>
+				</p>
+				<p>
+					Si tu te sens prêt, il te suffit de rensigner ton pseudo et d'appuyer sur la touche "Entrée"
+				</p>
+				<form action="#">
+					<label for="username">Ton pseudo : </label>
+					<input type="text" id="username" class="input_field">
+				</form>
+			</div>
 		</div>
-		<div class="game_board">
-			Cà va être d'enfer !!!
+		<div id="game_book">
+			<div class="book-content" id="narration">
+				<h2 class="block-content__title narration-title"></h2>
+				<p class="book-content__paragraphe narration"></p>
+			</div>
+			<div id="controls"></div>
+		</div>
+	</div>
+	<div id="backpack">
+		<h3>Back Pack</h3>
+		<div id="backpack_container">
+
 		</div>
 	</div>
 </div>
-<% include partials/footer.ejs%>
+<% include partials/footer.ejs %>

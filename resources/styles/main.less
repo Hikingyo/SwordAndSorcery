@@ -9,12 +9,139 @@
 
 }
 
+/* Colors */
+@dark-grey: #222222;
+@lightest-grey: #bdbdbd;
+@brown: #c19859;
+@darkerbrown: #987a4a;
+
 html, body {
 	font-size: 16px;
 }
 
-h1.title {
+body {
+	background: @dark-grey;
+	background-size: cover;
+}
+
+h1, h2, h3 {
 	font-family: 'sketch_gothic_schoolregular', fantasy;
-	font-size: 8em;
-	text-align: center;
+	font-weight: normal;
+}
+
+h1 {
+	font-size: 6em;
+	color: @lightest-grey;
+	text-shadow: 5px 5px 5px #000;
+	&.title {
+		text-align: center;
+		margin: 0;
+	}
+}
+
+h2 {
+	font-size: 4em;
+}
+
+h3 {
+	font-size: 2em;
+}
+
+#gameboard {
+	background: url("../img/book.png") no-repeat;
+	background-size: cover;
+	height: 750px;
+	width: 600px;
+	h2 {
+		text-align: center;
+		margin: 0;
+	}
+	& .book-content {
+		padding: 3% 9%;
+	}
+	& .book-content__paragraphe {
+		font-size: 1.2em;
+	}
+	display: flex;
+	flex-flow: column;
+
+	#controls{
+		display: flex;
+		flex-flow: row-reverse;
+		padding: 3% 9%;
+		justify-content: space-around;
+	}
+}
+
+#game_book {
+	display: none;
+}
+
+#backpack {
+	display: none;
+	background: url("../img/widgets_bar_vert.png") no-repeat center;
+	background-size: 50%;
+	h3 {
+		margin: 0;
+		text-align: center;
+		color: @lightest-grey;
+	}
+}
+
+#backpack_container {
+}
+
+.login_page {
+	display: none;
+}
+
+button {
+	min-height: 36px;
+	min-width: 46px;
+	background: transparent;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: auto;
+	color: #ffffff;
+	font-size: 20px;
+	padding: 10px 20px 10px 20px;
+	border: none;
+	text-decoration: none;
+	&:hover {
+		background: transparent;
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: auto;
+		text-decoration: none;
+	}
+	&:active {
+		border: none;
+		position: relative;
+		top: 2px;
+	}
+}
+
+input[type="text"] {
+	background-color: transparent;
+	padding: .125em;
+	border: none;
+	border-bottom: solid 2px @dark-grey;
+	transition: border 0.3s;
+	&:focus {
+		border-bottom: solid 2px black;
+	}
+}
+
+li {
+	list-style-type: none;
+	&:before {
+		content: url("../img/right_arrow.png");
+		margin-right: 0.250em;
+	}
+}
+
+em {
+	font-family: 'sketch_gothic_schoolregular', fantasy;
+	font-style: normal;
+	font-size: 2em;
 }

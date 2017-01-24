@@ -1,12 +1,12 @@
-var gulp = require("gulp");
-var $ = require("gulp-load-plugins")();
-var config = require("../config").styles;
+const gulp = require("gulp");
+const $ = require("gulp-load-plugins")();
+const config = require("../config").styles;
 
 gulp.task('styles', function(){
     return gulp.src(config.src)
             .pipe($.plumber())
             .pipe($.sourcemaps.init())
-        
+
             .pipe($.less({
                 paths:['.']
             }))

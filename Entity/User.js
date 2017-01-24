@@ -8,7 +8,7 @@ class User {
 	constructor(name) {
 		this._health = 20;
 		this._name = name;
-		this._strengh = 1;
+		this._strengh = 2;
 		this._backpack = new BackPack();
 		this._weapon = null;
 	}

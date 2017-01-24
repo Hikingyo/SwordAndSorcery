@@ -24,23 +24,30 @@
 	$.SAS = function (element, options) {
 
 		const defaults = {
-			foo: 'bar',
+			FADE_IN_DURATION: 300,
 		};
 
 		const self = this;
 
 		// Connect to the socket.
-		const socket = io();
+		let socket = io();
 
 		self.settings = {};
 
 		//TODO more stymish n efficent selector for elements
 		const $element = $(element);
 		const $window = $(window);
-		const $loginPage = $('.login_page');
-		const $gameBoard = $('.game_board');
+		const $loginPage = $('#login_page');
+		const $gameBoard = $('#gameboard');
+		const $gameBook = $('#game_book');
+		const $controls = $('#controls');
 		const $usernameInput = $('.input_field');
+		const $help = $('#help');
+		const $hud = $('#hud');
+		const $backpack = $('#backpack');
 		let $currentInput = $usernameInput.focus();
+		const $nodeTitle = $gameBoard.find('.narration-title');
+		const $nodeText = $gameBoard.find('.narration');
 
 		let player;
 		let connected = false;
@@ -60,6 +67,20 @@
 			return $('<div/>').text(input).text() || false;
 		};
 
+		const _showGameboard = () => {
+			$loginPage.hide();
+			$gameBook.fadeIn(self.settings.FADE_IN_DURATION);
+			$loginPage.off('click');
+			//$currentInput = $usernameInput.focus();
+			$currentInput = null;
+		};
+
+		const _showLoggingPage = () => {
+			$gameBook.hide();
+			$loginPage.fadeIn(self.settings.FADE_IN_DURATION);
+			$currentInput = $usernameInput;
+		};
+
 
 		// Sets the player name
 		const _setUsername = () => {
@@ -67,39 +88,124 @@
 
 			// If the username is valid
 			if (username) {
-				$loginPage.fadeOut();
-				$gameBoard.show();
-				$loginPage.off('click');
-				//$currentInput = $usernameInput.focus();
-				$currentInput = null;
 				// Tell the server your username
 				socket.emit('add user', username);
 			}
 		};
 
-		// Keyboard events
+		// TODO rework. { eventName : hit|action|nextNode..., args :{ ...args} }
+		const _userAction = (eventName, args) => {
+			if(args == undefined){
+				args = {};
+			}
+			console.log(eventName);
+			args['event'] = eventName;
+			socket.emit('action', args);
+		};
+
+		/**
+		 * Display text, action button. Bind button event to _userAction()
+		 * @param node
+		 * @private
+		 */
+		const _displayNode = (node) => {
+			const _node = JSON.parse(node);
+			console.dir(_node);
+			$nodeTitle.text(_node._title);
+			$nodeText.html(_node._narration);
+			_node._userActions.map((useraction) => {
+				let $button = $('<button/>').attr('name', useraction.title);
+				$button.css('background-image', 'url("../img/' + useraction.image);
+				$button.on('click', () => {
+					_userAction(useraction.type, {target: useraction.target});
+				});
+				console.dir($controls);
+				$button.appendTo($controls);
+			})
+		};
+
+		const _toggleHelp = () => {
+			$help.toggle(() => {
+					$help.show();
+				},
+				() => {
+					$help.hide();
+				})
+		};
+
+		const _toggleBackpack = () => {
+			$help.toggle(() => {
+					$backpack.show();
+				},
+				() => {
+					$backpack.hide();
+				})
+		};
+
+		/****************************
+		 *                            *
+		 *        Keyboard event        *
+		 *                            *
+		 ****************************/
 
 		$window.keydown(function (event) {
 			// Auto-focus the current input when a key is typed
-			if (!(event.ctrlKey || event.metaKey || event.altKey)) {
+			if (!(event.ctrlKey || event.metaKey || event.altKey) && $currentInput != null) {
 				$currentInput.focus();
 			}
-			// When the client hits ENTER on their keyboard
-			if (event.which === 13) {
-				if (connected) {
-					/*sendMessage();
-					 socket.emit('stop typing');
-					 typing = false;*/
-				} else {
-					console.log('plop');
-					_setUsername();
-				}
+			console.log(event.which);
+			switch (event.which) {
+				case 13: // ENTER
+					if (!connected) {
+						_setUsername();
+					}
+					break;
+				case 72: // h
+					break;
+				case 73 : // i
+					break;
+				default:
+					break;
 			}
+			// When the client hits ENTER on their keyboard
+			/*if (event.which === 13) {
+			 if (connected) {
+			 /!*sendMessage();
+			 socket.emit('stop typing');
+			 typing = false;*!/
+			 } else {
+			 _setUsername();
+			 }
+			 }*/
 		});
 
 		// Socket event
-		socket.on('logged', (data) => {
+		socket.on('connect', () => {
+			socket.emit('userIncoming');
+		});
+
+		socket.on('alreadyLogged', (data) => {
+			_showGameboard();
+		});
+
+		socket.on('notLogged', () => {
+			_showLoggingPage();
+		});
+
+		socket.on('connected', (data) => {
 			console.dir(data.user);
+		});
+
+		socket.on('SASerror', (data) => {
+			console.error(data);
+		});
+
+		socket.on('nextNode', (data) => {
+			_displayNode(data);
+		});
+
+		socket.on('updateHUD', (data) => {
+			console.dir(data);
 		});
 
 		self.init();
@@ -109,9 +215,9 @@
 	$.fn.SAS = function (options) {
 
 		return this.each(function () {
-			if (undefined == $(this).data('pluginName')) {
+			if (undefined == $(this).data('SAS')) {
 				let plugin = new $.SAS(this, options);
-				$(this).data('pluginName', plugin);
+				$(this).data('SAS', plugin);
 			}
 		});
 
