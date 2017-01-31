@@ -13,3 +13,4 @@ sonar.sourceEncoding=utf8
 
 sonar.javascript.jstestdriver.reportsPath=reports
 sonar.javascript.lcov.reportPaths=reports/lcov.info
+sonar.coverage.exclusions=test/**/*.js

@@ -65,7 +65,7 @@ h3 {
 	display: flex;
 	flex-flow: column;
 
-	#controls{
+	#controls {
 		display: flex;
 		flex-flow: row-reverse;
 		padding: 3% 9%;
@@ -77,22 +77,61 @@ h3 {
 	display: none;
 }
 
-#backpack {
+.login_page, .help, .backpack {
 	display: none;
-	background: url("../img/widgets_bar_vert.png") no-repeat center;
-	background-size: 50%;
-	h3 {
-		margin: 0;
-		text-align: center;
-		color: @lightest-grey;
+	color: @lightest-grey;
+}
+
+.overlay {
+	display: flex;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.80);
+}
+
+#inventory {
+	position: relative;
+	background: url("../img/inventory.png") no-repeat center;
+	background-size: 100%;
+	height: 286px;
+	width: 324px;
+
+	#inventory__content {
+		display: flex;
+		flex-flow: row wrap;
+		height: 220px;
+		width: 220px;
+		position: absolute;
+		top: 42px;
+		left: 40px;
+
+		.inventory__content__item-box{
+			height: 60px;
+			width: 60px;
+			margin: auto;
+
+			&:hover{
+				background-color: rgba(255, 255, 255, 0.3);
+			}
+
+			img{
+				height: 60px;
+			}
+		}
 	}
 }
 
-#backpack_container {
-}
+.help{
+	h2{
+		text-align: center;
+	}
 
-.login_page {
-	display: none;
+	p{
+		padding: 1em;
+	}
 }
 
 button {

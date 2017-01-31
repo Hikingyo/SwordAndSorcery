@@ -9,7 +9,6 @@
 				<ul>
 					<li>Tu peux consulter l'aide à tout moment en appuyant sur la touche 'H'</li>
 					<li>Tu as à ta disposition un inventaire consultable à l'aide de la touche 'I'</li>
-					<li>Dans ton inventaire, tu peux selectionner un item en cliquant dessus.</li>
 				</ul>
 				</p>
 				<p>
@@ -29,11 +28,46 @@
 			<div id="controls"></div>
 		</div>
 	</div>
-	<div id="backpack">
-		<h3>Back Pack</h3>
-		<div id="backpack_container">
 
+	<div class="backpack flex-container-v">
+		<div class="center">
+			<h2>Back Pack</h2>
+			<div id="inventory">
+				<div id="item_name">Item Name</div>
+				<div id="inventory__content">
+					<div class="inventory__content__item-box"></div>
+					<div class="inventory__content__item-box"></div>
+					<div class="inventory__content__item-box"></div>
+					<div class="inventory__content__item-box"></div>
+					<div class="inventory__content__item-box"></div>
+					<div class="inventory__content__item-box"></div>
+					<div class="inventory__content__item-box"></div>
+					<div class="inventory__content__item-box"></div>
+					<div class="inventory__content__item-box"></div>
+				</div>
+			</div>
 		</div>
+	</div>
+	<div class="help flex-container-v">
+		<div>
+			<h2>Aide</h2>
+			<p>
+				Pour progresser dans le jeu, tu devras faire des chois entre
+				les différentes options qui te seront proposer.<br>
+				Tu est suceptible de rencontrer des ennemis. Tu pourras les frapper en appuyant sur la barre espace.<br>
+				Ta rapidité d'attaque dépend de l'arme que tu portes, ou non.
+			</p>
+			<p>
+				Tu as a disposition un inventaire accéssible grâce à la touche 'i'.<br>
+				Tu peux activer un item en cliquant dessus et ainsi profiter de ses effets.
+			</p>
+			<p>
+				Tu peux activer le mode 'invincible' en appuyant sur la touche 'g'.
+				Tu pourras alors tuer tes ennemis en un coup, ne pas subir de dégat.<br>
+				De plus, les 'bon' pour progresser te seront indiquer.
+			</p>
+		</div>
+
 	</div>
 </div>
 <% include partials/footer.ejs %>

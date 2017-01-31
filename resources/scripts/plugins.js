@@ -42,15 +42,16 @@
 		const $gameBook = $('#game_book');
 		const $controls = $('#controls');
 		const $usernameInput = $('.input_field');
-		const $help = $('#help');
-		const $hud = $('#hud');
-		const $backpack = $('#backpack');
-		let $currentInput = $usernameInput.focus();
+		const $help = $('.help');
+		const $backpack = $('.backpack');
 		const $nodeTitle = $gameBoard.find('.narration-title');
 		const $nodeText = $gameBoard.find('.narration');
+		const $backPackItems = $backpack.find('.inventory__content__item-box');
 
-		let player;
+		let backPack = [];
+
 		let connected = false;
+
 
 		self.init = function () {
 			console.log('Here we go !');
@@ -68,17 +69,15 @@
 		};
 
 		const _showGameboard = () => {
+			connected = true;
 			$loginPage.hide();
 			$gameBook.fadeIn(self.settings.FADE_IN_DURATION);
 			$loginPage.off('click');
-			//$currentInput = $usernameInput.focus();
-			$currentInput = null;
 		};
 
 		const _showLoggingPage = () => {
 			$gameBook.hide();
 			$loginPage.fadeIn(self.settings.FADE_IN_DURATION);
-			$currentInput = $usernameInput;
 		};
 
 
@@ -95,10 +94,9 @@
 
 		// TODO rework. { eventName : hit|action|nextNode..., args :{ ...args} }
 		const _userAction = (eventName, args) => {
-			if(args == undefined){
+			if (args == undefined) {
 				args = {};
 			}
-			console.log(eventName);
 			args['event'] = eventName;
 			socket.emit('action', args);
 		};
@@ -113,46 +111,59 @@
 			console.dir(_node);
 			$nodeTitle.text(_node._title);
 			$nodeText.html(_node._narration);
+			$controls.empty();
 			_node._userActions.map((useraction) => {
 				let $button = $('<button/>').attr('name', useraction.title);
 				$button.css('background-image', 'url("../img/' + useraction.image);
 				$button.on('click', () => {
 					_userAction(useraction.type, {target: useraction.target});
 				});
-				console.dir($controls);
 				$button.appendTo($controls);
 			})
 		};
 
 		const _toggleHelp = () => {
-			$help.toggle(() => {
-					$help.show();
-				},
-				() => {
-					$help.hide();
-				})
+			if (!connected) {
+				return;
+			}
+			if (!$help.hasClass("overlay")) {
+				$('.overlay').toggleClass("overlay");
+			}
+			$help.toggleClass("overlay");
+
 		};
 
 		const _toggleBackpack = () => {
-			$help.toggle(() => {
-					$backpack.show();
-				},
-				() => {
-					$backpack.hide();
-				})
+			if (!connected) {
+				return;
+			}
+			if (!$backpack.hasClass("overlay")) {
+				$('.overlay').toggleClass("overlay");
+				let i = 0;
+				const itemLength = backPack.length;
+				for (i; i < itemLength; i++){
+					console.dir(backPack[i]);
+					const $item = $('<img>').attr('src', 'img/' + backPack[i]._img);
+					$item.data.id = i;
+					console.dir($item);
+					$item.appendTo($backPackItems[i]);
+				}
+			}
+			$backpack.toggleClass("overlay");
+
+		};
+
+		const _iMGod = () => {
+			socket.emit('godMode');
 		};
 
 		/****************************
 		 *                            *
-		 *        Keyboard event        *
+		 *        Keyboard event      *
 		 *                            *
 		 ****************************/
 
 		$window.keydown(function (event) {
-			// Auto-focus the current input when a key is typed
-			if (!(event.ctrlKey || event.metaKey || event.altKey) && $currentInput != null) {
-				$currentInput.focus();
-			}
 			console.log(event.which);
 			switch (event.which) {
 				case 13: // ENTER
@@ -160,23 +171,18 @@
 						_setUsername();
 					}
 					break;
-				case 72: // h
+				case 72: // h => backpack
+					_toggleHelp();
 					break;
-				case 73 : // i
+				case 73 : // i => inventory
+					_toggleBackpack();
+					break;
+				case 71 : // g => god mode
+					_iMGod();
 					break;
 				default:
 					break;
 			}
-			// When the client hits ENTER on their keyboard
-			/*if (event.which === 13) {
-			 if (connected) {
-			 /!*sendMessage();
-			 socket.emit('stop typing');
-			 typing = false;*!/
-			 } else {
-			 _setUsername();
-			 }
-			 }*/
 		});
 
 		// Socket event
@@ -193,7 +199,7 @@
 		});
 
 		socket.on('connected', (data) => {
-			console.dir(data.user);
+			_showGameboard();
 		});
 
 		socket.on('SASerror', (data) => {
@@ -206,6 +212,11 @@
 
 		socket.on('updateHUD', (data) => {
 			console.dir(data);
+		});
+
+		socket.on('reward', (data) => {
+			console.dir(data);
+			backPack.push(JSON.parse(data));
 		});
 
 		self.init();

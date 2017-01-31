@@ -157,7 +157,7 @@ module.exports = {
 			'DEBUG': 'SAS:*'
 		},
 		watch: [
-			bin + '/*',
+			'bin/*',
 			'controllers/*',
 			'app.js',
 			'Entity/*',

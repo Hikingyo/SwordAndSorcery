@@ -32,15 +32,16 @@ function _onDisconnect() {
  * @private
  */
 function _userIncoming() {
+	// TODO refill weapon and backpack
 	socketDebug('User incoming');
 	// check if already a user for the session
 	if (_checkSession(this)) {
 		let user = this.handshake.session.user;
 		this.handshake.session.isConnected = true;
 		let node = _gameservice.getNode(this.handshake.session.actualNode, this.handshake.session.actualNodeData);
+		this.handshake.session.possibleActions = node.userActions;
 		this.handshake.session.save();
 		this.emit('alreadyLogged', {user: JSON.stringify(user)});
-		// TODO remove the emit to gameservice. Add possible action to avoid hack
 		this.emit('nextNode', JSON.stringify(node));
 	}
 	else {
@@ -54,11 +55,12 @@ function _addUser(username) {
 	this.handshake.session.user = user;
 	this.handshake.session.isConnected = true;
 	// Get the first node of the game
-	const node = _gameservice.getNode('Welcome', {userName: user.getName});
+	const node = _gameservice.getNode('Welcome', {userName: user.name});
 	this.handshake.session.actualNode = node.name;
+	// data for narration
 	this.handshake.session.actualNodeData = {userName: user.name};
 	// We store the possible user action to prevent hack
-	this.handshake.session.possibleAction = node.useractions;
+	this.handshake.session.possibleActions = node.userActions;
 	this.handshake.session.save();
 	// Then emit to client
 	this.emit('connected', {user: JSON.stringify(user)});
@@ -68,20 +70,26 @@ function _addUser(username) {
 
 function _userAction(data) {
 	// TODO security check from session.useractions
-	const userAction = _gameservice.userAction(data);
+	const userAction = _gameservice.userAction(this.handshake.session, data);
 	if (!userAction) {
-		socketDebug('[socket._userAction] Bad action requested ' + data.event);
 		this.emit('SASerror', 'Bad action requested');
 	}
-	else{
-		this.handshake.session.actualNode = userAction.data.name;
-		this.handshake.session.actualNodeData = {};
-		// We store the possible user action to prevent hack
-		this.handshake.session.possibleAction = userAction.data.useractions;
-		this.handshake.session.save();
-		this.emit(userAction.event, JSON.stringify(userAction.data));
+	else {
+		userAction.forEach( (action) => {
+			if(action.event == 'nextNode'){
+
+				this.handshake.session.actualNode = action.node.name;
+				// Data for narration
+				this.handshake.session.actualNodeData = {};
+				// We store the possible user action to prevent hack
+				this.handshake.session.possibleActions = action.node.userActions;
+				this.handshake.session.save();
+			}
+			this.emit(action.event, JSON.stringify(action.node));
+		});
 	}
 }
+
 
 /**
  * Check if player was ingame

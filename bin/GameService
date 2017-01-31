@@ -1,6 +1,7 @@
 const User = require('../Entity/User');
 const debug = require('debug');
 const Node = require('../Entity/Node');
+const Weapon = require('../Entity/Weapon');
 const gameServiceDebug = debug('SAS:GameService');
 class GameService {
 	constructor() {
@@ -15,21 +16,49 @@ class GameService {
 		return new Node(nodeName, data);
 	}
 
-	userAction(request){
-		let res;
-		gameServiceDebug('[userAction] ' + request);
-		switch (request.event){
-			case 'nextNode':
-				res = {event : 'nextNode', data :this.getNode(request.target)};
-				break;
-			case 'hit':
-				break;
-			case 'reward':
-				break;
-			default:
-				res = false;
+	getWeapon(name){
+		return new Weapon(name);
+	}
+
+	userAction(session, request) {
+		let res = false;
+		if(this.isPossibleAction(session, request)){
+			switch (request.event) {
+				case 'nextNode':
+					res = [{event: 'nextNode', node: this.getNode(request.target)}];
+					break;
+				case 'hit':
+					// TODO fightService
+					break;
+				case 'reward':
+					res = [];
+					// Retrieving the actual node
+					const _currentNode = this.getNode(session.actualNode);
+					// First we give reward to the player
+					gameServiceDebug(_currentNode.userActions[0]);
+					// When action is 'reward, we've only one possilble action with a reward :)
+					const _weapon = this.getWeapon(_currentNode.userActions[0].reward);
+					session.user._weapon = _weapon;
+					session.save();
+					res.push({event: 'reward', node: _weapon});
+					// Then the next node
+					res.push({event: 'nextNode', node: this.getNode(request.target)});
+					break;
+				default:
+					res = false;
+			}
 		}
+
 		return res;
+	}
+
+	isPossibleAction(session, request) {
+		const actionType = request.event;
+		const target = request.target;
+		return session.possibleActions.every((action) => {
+			return (action.type == actionType && action.target == target);
+		});
+
 	}
 }
 
