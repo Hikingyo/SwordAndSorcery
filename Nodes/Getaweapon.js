@@ -3,7 +3,8 @@
  */
 module.exports = {
 	title: "Ceci est ton amie",
-	narration: 'SPeech get a weapon',
+	narration: "Un héro qui se respect porte toujours une épée à ces côtés. Heureusement, tu en aperçois une négligeament posée non loin de la porte du donjon.<br>" +
+	"Clique sur l'épée pour la récupérer.",
 	useractions: [
 		{
 			type: 'reward',

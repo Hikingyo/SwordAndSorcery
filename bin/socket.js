@@ -41,7 +41,7 @@ function _userIncoming() {
 		let node = _gameservice.getNode(this.handshake.session.actualNode, this.handshake.session.actualNodeData);
 		this.handshake.session.possibleActions = node.userActions;
 		this.handshake.session.save();
-		this.emit('alreadyLogged', {user: JSON.stringify(user)});
+		this.emit('alreadyLogged', {user: user});
 		this.emit('nextNode', JSON.stringify(node));
 	}
 	else {

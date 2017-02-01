@@ -141,12 +141,16 @@
 				$('.overlay').toggleClass("overlay");
 				let i = 0;
 				const itemLength = backPack.length;
-				for (i; i < itemLength; i++){
-					console.dir(backPack[i]);
+				for (i; i < itemLength; i++) {
+					$($backPackItems[i]).empty();
 					const $item = $('<img>').attr('src', 'img/' + backPack[i]._img);
 					$item.data.id = i;
-					console.dir($item);
 					$item.appendTo($backPackItems[i]);
+					if (backPack[i]._type != 'weapon') {
+						$item.on('click', () => {
+							_itemAction(backPack[i]);
+						})
+					}
 				}
 			}
 			$backpack.toggleClass("overlay");
@@ -155,6 +159,19 @@
 
 		const _iMGod = () => {
 			socket.emit('godMode');
+		};
+
+		const _itemAction = (item) => {
+			console.dir(item);
+		};
+
+		const _fillInventory = (user) => {
+			backPack = [];
+			for(const item in user._backpack._content){
+				// TODO filter wwith hasOwnProperty
+				backPack.push(item);
+			}
+			backPack.push(user._weapon);
 		};
 
 		/****************************
@@ -192,6 +209,7 @@
 
 		socket.on('alreadyLogged', (data) => {
 			_showGameboard();
+			_fillInventory(data.user);
 		});
 
 		socket.on('notLogged', () => {
