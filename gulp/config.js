@@ -18,7 +18,8 @@ module.exports = {
 			"searchPath": [
 				tmp,
 				src,
-				'.'
+				'.',
+				'bower_components'
 			]
 		},
 		"minifyCss": {

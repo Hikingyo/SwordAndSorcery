@@ -32,9 +32,12 @@ session = app.use(session({
 		maxAge: null
 	}
 }));
-
+let views_path = 'public';
 // View Engine Setup
-app.set('views', path.join(__dirname, 'views'));
+if(app.get('env') === 'dev'){
+	views_path = 'views';
+}
+app.set('views', path.join(__dirname, views_path));
 app.set('view engine', 'ejs');
 
 app.use(logger('dev'));
