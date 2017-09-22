@@ -24,7 +24,7 @@
 		"node": ">=6.9"
 	},
 	"dependencies": {
-		"body-parser": "^1.15.2",
+		"body-parser": "^1.18.2",
 		"cookie-parser": "^1.4.3",
 		"ejs": "~2.3.3",
 		"express": "latest",
